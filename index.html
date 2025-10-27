@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Calculadora Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="number" v-model.number="n1">
+
+        <select v-model="operacao">
+            <option value="somar">+</option>
+            <option value="subtrair">-</option>
+            <option value="multiplicar">*</option>
+            <option value="dividir">/</option>
+        </select>
+
+        <input type="number" v-model.number="n2">
+
+        <button @click="calcular">Calcular</button>
+
+        <p>O resultado é: {{ resultado }}</p>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                n1: 0,
+                n2: 0,
+                operacao: 'somar',
+                resultado: 0
+            },
+            methods: {
+                calcular() {
+                    switch (this.operacao) {
+                        case 'somar':
+                            this.resultado = this.n1 + this.n2;
+                            break;
+                        case 'subtrair':
+                            this.resultado = this.n1 - this.n2;
+                            break;
+                        case 'multiplicar':
+                            this.resultado = this.n1 * this.n2;
+                            break;
+                        case 'dividir':
+                            this.resultado = this.n2 !== 0 ? this.n1 / this.n2 : 'Erro: divisão por zero';
+                            break;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+
+</html>
