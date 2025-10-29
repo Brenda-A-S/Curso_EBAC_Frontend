@@ -6,6 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./vue.js"></script>
     <title>Calculadora Vue</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #eee;
+            text-align: center;
+        }
+        div{
+            padding-top: 100px;
+        }
+        input,select {
+            display: inline-flex;
+            border: none;
+            border-radius: 50px;
+            padding: 5px 10px;
+            margin: 5px 0;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -21,9 +39,7 @@
 
         <input type="number" v-model.number="n2">
 
-        <button @click="calcular">Calcular</button>
-
-        <p>O resultado é: {{ resultado }}</p>
+        <p>O resultado é: {{ calcular }}</p>
     </div>
 
     <script>
@@ -35,20 +51,20 @@
                 operacao: 'somar',
                 resultado: 0
             },
-            methods: {
+            computed: {
                 calcular() {
                     switch (this.operacao) {
                         case 'somar':
-                            this.resultado = this.n1 + this.n2;
+                            return this.resultado = this.n1 + this.n2;
                             break;
                         case 'subtrair':
-                            this.resultado = this.n1 - this.n2;
+                            return this.resultado = this.n1 - this.n2;
                             break;
                         case 'multiplicar':
-                            this.resultado = this.n1 * this.n2;
+                            return this.resultado = this.n1 * this.n2;
                             break;
                         case 'dividir':
-                            this.resultado = this.n2 !== 0 ? this.n1 / this.n2 : 'Erro: divisão por zero';
+                            return this.resultado = this.n2 !== 0 ? this.n1 / this.n2 : 'Erro: divisão por zero';
                             break;
                     }
                 }
