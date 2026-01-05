@@ -1,0 +1,17 @@
+{
+  "name": "curso_ebac_frontend-exercicio_cypress",
+  "version": "1.0.0",
+  "main": "testes.cy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cypress": "^14.5.4"
+  }
+}
